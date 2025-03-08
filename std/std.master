@@ -1,0 +1,110 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="std.master.cs" Inherits="std_std" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="author" content="Punj Prakash">
+    <meta name="description" content="Content Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%: Page.Title %></title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preload" href="/Styles/cms.css" as="style" />
+    <link rel="preload" href="/Content/bootstrap.min.css" as="style" />
+    <link rel="preload" href="/Content/fontawesome.min.css" as="style" />
+    <link rel="preload" href="/Scripts/jquery-3.7.1.min.js" as="script" />
+    <link rel="preload" href="/Scripts/bootstrap.bundle.min.js" as="script" />
+    <link rel="stylesheet" href="/Styles/cms.css" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/fontawesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <!-- Section 1: Sidebar Toggle -->
+                <div class="d-flex align-items-center me-3">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Section 2: Logo -->
+                <a class="navbar-brand me-auto d-flex align-items-center" href="/std/">
+                    <img src="/Image/logo/logo-head.png" alt="Logo" class="logo-nav">
+                </a>
+
+                <!-- Section 3: Brand Name -->
+                <div class="d-none d-lg-flex text-center mx-auto">
+                    <span class="h5 text-white fw-bold">Alumnus / Student Portal</span>
+                </div>
+
+                <!-- Section 4: Developer Info -->
+                <div class="d-none d-lg-flex text-center mx-auto">
+                    <small class="text-white">Developed by 
+                <a class="text-info text-decoration-none" href="https://punjprakashpp.github.io/portfolio/" target="_blank">Punj Prakash</a>
+                    </small>
+                </div>
+
+                <!-- Section 5: User Actions -->
+                <div class="ms-auto">
+                    <asp:LoginView runat="server">
+                        <AnonymousTemplate>
+                            <a href="~/StdLogin.aspx" class="btn btn-outline-light btn-sm">Log In</a>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hello, <%: Context.User.Identity.Name %>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="ManageProfile.aspx" class="dropdown-item">Manage Profile</a></li>
+                                    <li>
+                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" CssClass="dropdown-item" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar / Offcanvas -->
+        <div class="offcanvas-lg offcanvas-start bg-dark text-white fixed-lg-sidebar" id="sidebar" tabindex="-1" aria-labelledby="sidebarLabel">
+            <div class="offcanvas-header pb-0">
+                <h5 class="offcanvas-title text-white" id="sidebarLabel">Navigation Menu</h5>
+            </div>
+            <div class="offcanvas-body d-flex flex-column" style="overflow-y: auto; height: 100%;">
+                <ul class="nav flex-column px-3">
+                    <li class="nav-item">
+                        <a href="../std/" class="nav-link">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ManageProfile.aspx" class="nav-link">
+                            <i class="fas fa-user-edit me-2"></i>Manage Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Information.aspx" class="nav-link">
+                            <i class="fas fa-info-circle me-2"></i>Manage Information
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="SocialHandles.aspx" class="nav-link">
+                            <i class="fas fa-share-alt me-2"></i>Manage Social Handles
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex-grow-1 content-container" style="height: 100vh; overflow-y: auto;">
+            <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script defer type="text/javascript" src="/Scripts/jquery-3.7.1.min.js"></script>
+    <script defer type="text/javascript" src="/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿.card {
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+/* box and Image Styling */
+.box img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 5px solid #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .box img:hover {
+        transform: scale(1.05);
+    }
+
+.board {
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #ddd;
+}
+
+.slider-section, .notice-section {
+    background: rgba(225, 225, 225, 0.25);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+    .slider-section, .notice-section {
+        margin: 10px auto;
+        padding: 10px;
+        width: 100%; /* Full width for mobile view */
+    }
+
+    .notice-section {
+        position: static; /* Change from absolute to static positioning */
+        width: 100%; /* Full width */
+        height: 300px;
+        margin-top: 20px; /* Add margin above for separation */
+        display: block; /* Display the notice section */
+    }
+}
+
+.marquee {
+    overflow: hidden;
+}
+
+.notice {
+    margin: 10px 0;
+    padding: 5px;
+    color: brown;
+    font-size: 16px;
+}
+
+    .notice a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .notice a:hover {
+            text-decoration: underline;
+        }
+
+        .notice a:after {
+            content: url('../Image/gif/newanim.gif');
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+.links-section {
+    width: 100%;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+    .links-section .high {
+        margin-right: 10px;
+        font-weight: bold;
+        color: white;
+        background-color: orangered;
+        font-size: 16px;
+        padding: 4px;
+        border-radius: 3px;
+        margin-bottom: 0px;
+    }
+
+    .links-section marquee {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+        .links-section marquee a {
+            text-decoration: none;
+            padding: 5px;
+            color: #001f44;
+            display: inline-flex;
+            align-items: center;
+        }
+
+            .links-section marquee a:before {
+                content: url('../Image/gif/newanim.gif');
+                margin-right: 5px;
+            }
+
+            .links-section marquee a:hover {
+                text-decoration: underline;
+                background: #bababa;
+                font-size: 1.05em;
+                transition: font-size 0.2s, background-color 0.2s;
+            }
+
+
+@media (max-width: 768px) {
+    .links-section {
+        height: auto;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .links-section {
+        padding: 10px;
+        height: auto;
+    }
+
+        .links-section marquee {
+            font-size: 14px;
+        }
+
+    .notice {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,221 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="cms.master.cs" Inherits="cms_master" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="author" content="Punj Prakash">
+    <meta name="description" content="Content Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%: Page.Title %></title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preload" href="/Styles/cms.css" as="style" />
+    <link rel="preload" href="/Content/bootstrap.min.css" as="style" />
+    <link rel="preload" href="/Content/fontawesome.min.css" as="style" />
+    <link rel="preload" href="/Scripts/jquery-3.7.1.min.js" as="script" />
+    <link rel="preload" href="/Scripts/bootstrap.bundle.min.js" as="script" />
+    <link rel="stylesheet" href="/Styles/cms.css" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/fontawesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <!-- Section 1: Sidebar Toggle -->
+                <div class="d-flex align-items-center me-3">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Section 2: Logo -->
+                <a class="navbar-brand me-auto d-flex align-items-center" href="/cms/">
+                    <img src="/Image/logo/logo-head.png" alt="Logo" class="logo-nav">
+                </a>
+
+                <!-- Section 3: Brand Name -->
+                <div class="d-none d-lg-flex text-center mx-auto">
+                    <span class="h5 text-white fw-bold">Content Management System</span>
+                </div>
+
+                <!-- Section 4: Developer Info -->
+                <div class="d-none d-lg-flex text-center mx-auto">
+                    <small class="text-white">Developed by 
+                <a class="text-info text-decoration-none" href="https://punjprakashpp.github.io/portfolio/" target="_blank">Punj Prakash</a>
+                    </small>
+                </div>
+
+                <!-- Section 5: User Actions -->
+                <div class="ms-auto">
+                    <asp:LoginView runat="server">
+                        <AnonymousTemplate>
+                            <a href="~/Login.aspx" class="btn btn-outline-light btn-sm">Log In</a>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hello, <%: Context.User.Identity.Name %>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a href="ManageAccount.aspx" class="dropdown-item">Manage Account</a></li>
+                                    <li><a href="ChangePassword.aspx" class="dropdown-item">Change Password</a></li>
+                                    <li>
+                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" CssClass="dropdown-item" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar / Offcanvas -->
+        <div class="offcanvas-lg offcanvas-start bg-dark text-white fixed-lg-sidebar" id="sidebar" tabindex="-1" aria-labelledby="sidebarLabel">
+            <div class="offcanvas-header pb-0">
+                <h5 class="offcanvas-title text-white" id="sidebarLabel">Navigation Menu</h5>
+            </div>
+            <div class="offcanvas-body d-flex flex-column" style="overflow-y: auto; height: 100%;">
+                <ul class="nav flex-column px-3">
+                    <li class="nav-item">
+                        <a href="../cms/" class="nav-link">
+                            <i class="fas fa-home me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#addMenu" role="button" aria-expanded="false"
+                            aria-controls="addMenu">
+                            <i class="fas fa-add me-2"></i>Add<i class="fas fa-sort-down ms-2"></i>
+                        </a>
+                        <div class="collapse" id="addMenu">
+                            <ul class="nav flex-column ps-4">
+                                <li><a href="AddVideoLink.aspx" class="nav-link"><i class="fa-solid fa-video me-2"></i>Video Link</a></li>
+                                <li><a href="AddHighlightLink.aspx" class="nav-link"><i class="fa-solid fa-highlighter me-2"></i>Highlight Link</a></li>
+                                <li><a href="AddQuickLink.aspx" class="nav-link"><i class="fa-solid fa-highlighter me-2"></i>Quick Link Button</a></li>
+                                <asp:Panel ID="AdminPanel1" runat="server" Visible="false">
+                                    <li><a href="AddStudent.aspx" class="nav-link"><i class="fa-solid fa-user me-2"></i>Student</a></li>
+                                    <li><a href="AddOfficeStaff.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Office Staff</a></li>
+                                    <li><a href="AddAdministration.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Administration</a></li>
+                                    <li><a href="AddFacultyMember.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Faculty Member</a></li>
+                                </asp:Panel>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#uploadMenu" role="button" aria-expanded="false"
+                            aria-controls="uploadMenu">
+                            <i class="fas fa-upload me-2"></i>Upload<i class="fas fa-sort-down ms-2"></i>
+                        </a>
+                        <div class="collapse" id="uploadMenu">
+                            <ul class="nav flex-column ps-4">
+                                <li><a href="UploadEvent.aspx" class="nav-link"><i class="fa-solid fa-calendar-days me-2"></i>Event</a></li>
+                                <li><a href="UploadNotice.aspx" class="nav-link"><i class="fa-solid fa-bell me-2"></i>Notice</a></li>
+                                <li><a href="UploadNewsImage.aspx" class="nav-link"><i class="fa-solid fa-newspaper me-2"></i>News Image</a></li>
+                                <li><a href="UploadSliderImage.aspx" class="nav-link"><i class="fa-solid fa-sliders me-2"></i>Slider Image</a></li>
+                                <li><a href="UploadGalleryImage.aspx" class="nav-link"><i class="fa-solid fa-images me-2"></i>Gallery Image</a></li>
+                                <li><a href="UploadAssignment.aspx" class="nav-link"><i class="fa-solid fa-file-archive me-2"></i>Assignments</a></li>
+                                <li><a href="UploadOtherFile.aspx" class="nav-link"><i class="fa-solid fa-file me-2"></i>Other Files</a></li>
+                                <li><a href="UploadModalQuestion.aspx" class="nav-link"><i class="fa-solid fa-file-circle-check me-2"></i>Modal Papers</a></li>
+                                <asp:Panel ID="AdminPanel2" runat="server" Visible="false">
+                                    <li><a href="UploadReport.aspx" class="nav-link"><i class="fa-solid fa-file-archive me-2"></i>Report</a></li>
+                                    <li><a href="UploadTender.aspx" class="nav-link"><i class="fa-solid fa-file-contract me-2"></i>Tender</a></li>
+                                    <li><a href="UploadSyllabus.aspx" class="nav-link"><i class="fa-solid fa-file-lines me-2"></i>Syllabus</a></li>
+                                    <li><a href="UploadStudentData.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Student Data</a></li>
+                                    <li><a href="UploadPYQPaper.aspx" class="nav-link"><i class="fa-solid fa-file-circle-question me-2"></i>PYQ Papers</a></li>
+                                    <li><a href="UploadInternalQuestion.aspx" class="nav-link"><i class="fa-solid fa-file-circle-plus me-2"></i>Internal Questions</a></li>
+                                </asp:Panel>
+                            </ul>
+                        </div>
+                    </li>
+                    <asp:Panel ID="AdminPanel" runat="server" Visible="false">
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#updateMenu" role="button" aria-expanded="false"
+                                aria-controls="updateMenu">
+                                <i class="fas fa-sync me-2"></i>Update<i class="fas fa-sort-down ms-2"></i>
+                            </a>
+                            <div class="collapse" id="updateMenu">
+                                <ul class="nav flex-column ps-4">
+                                    <li><a href="UpdateAcademicPDF.aspx" class="nav-link"><i class="fa-solid fa-file me-2"></i>Academic PDF</a></li>
+                                    <li><a href="UpdateDirectorProfile.aspx" class="nav-link"><i class="fa-solid fa-user me-2"></i>Director's Profile</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </asp:Panel>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#manageMenu" role="button" aria-expanded="false"
+                            aria-controls="manageMenu">
+                            <i class="fas fa-table me-2"></i>Manage<i class="fas fa-sort-down ms-2"></i>
+                        </a>
+                        <div class="collapse" id="manageMenu">
+                            <ul class="nav flex-column ps-4">
+                                <li><a href="ManageEvents.aspx" class="nav-link"><i class="fa-solid fa-calendar-days me-2"></i>Events</a></li>
+                                <li><a href="ManageNotices.aspx" class="nav-link"><i class="fa-solid fa-bell me-2"></i>Notices</a></li>
+                                <li><a href="ManageVideoLinks.aspx" class="nav-link"><i class="fa-solid fa-video me-2"></i>Video Link</a></li>
+                                <li><a href="ManageHighlightLinks.aspx" class="nav-link"><i class="fa-solid fa-highlighter me-2"></i>Highlight Link</a></li>
+                                <li><a href="ManageQuickLinks.aspx" class="nav-link"><i class="fa-solid fa-highlighter me-2"></i>Quick Link Button</a></li>
+                                <asp:Panel ID="AdminPanel3" runat="server" Visible="false">
+                                    <li><a href="ManageReports.aspx" class="nav-link"><i class="fa-solid fa-file-archive me-2"></i>Reports</a></li>
+                                    <li><a href="ManageTenders.aspx" class="nav-link"><i class="fa-solid fa-file-contract me-2"></i>Tenders</a></li>
+                                    <li><a href="ManageStudents.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Students</a></li>
+                                    <li><a href="ManageAdministration.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Administration</a></li>
+                                    <li><a href="ManageStaff.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Office Staff</a></li>
+                                    <li><a href="ManageFaculty.aspx" class="nav-link"><i class="fa-solid fa-users me-2"></i>Faculty Member</a></li>
+                                </asp:Panel>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#deleteMenu" role="button" aria-expanded="false"
+                            aria-controls="deleteMenu">
+                            <i class="fas fa-remove me-2"></i>Delete<i class="fas fa-sort-down ms-2"></i>
+                        </a>
+                        <div class="collapse" id="deleteMenu">
+                            <ul class="nav flex-column ps-4">
+                                <li><a href="DeleteNewsImages.aspx" class="nav-link"><i class="fa-solid fa-newspaper me-2"></i>News Image</a></li>
+                                <li><a href="DeleteSliderImages.aspx" class="nav-link"><i class="fa-solid fa-sliders me-2"></i>Slider Image</a></li>
+                                <li><a href="DeleteGalleryImages.aspx" class="nav-link"><i class="fa-solid fa-images me-2"></i>Gallery Image</a></li>
+                                <li><a href="DeleteAssignments.aspx" class="nav-link"><i class="fa-solid fa-file-archive me-2"></i>Assignments</a></li>
+                                <li><a href="DeleteOtherFiles.aspx" class="nav-link"><i class="fa-solid fa-file me-2"></i>Other Files</a></li>
+                                <li><a href="DeleteModalQuestions.aspx" class="nav-link"><i class="fa-solid fa-file-circle-check me-2"></i>Modal Papers</a></li>
+                                <asp:Panel ID="AdminPanel4" runat="server" Visible="false">
+                                    <li><a href="DeleteSyllabus.aspx" class="nav-link"><i class="fa-solid fa-file-lines me-2"></i>Syllabus</a></li>
+                                    <li><a href="DeletePYQPapers.aspx" class="nav-link"><i class="fa-solid fa-file-circle-question me-2"></i>PYQ Papers</a></li>
+                                    <li><a href="DeleteInternalQuestions.aspx" class="nav-link"><i class="fa-solid fa-file-circle-plus me-2"></i>Internal Questions</a></li>
+                                </asp:Panel>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#userMenu" role="button" aria-expanded="false"
+                            aria-controls="userMenu">
+                            <i class="fas fa-user-lock me-2"></i>User<i class="fas fa-sort-down ms-2"></i>
+                        </a>
+                        <div class="collapse" id="userMenu">
+                            <ul class="nav flex-column ps-4">
+                                <li><a href="ManageAccount.aspx" class="nav-link"><i
+                                    class="fa-solid fa-address-card me-2"></i>Manage Account</a></li>
+                                <li><a href="ChangePassword.aspx" class="nav-link"><i
+                                    class="fa-solid fa-lock me-2"></i>Change
+                                            Password</a></li>
+                                <asp:Panel ID="AdminPanel5" runat="server" Visible="false">
+                                    <li><a href="ManageUsers.aspx" class="nav-link"><i
+                                        class="fa-solid fa-users me-2"></i>Manage
+                                                Users</a></li>
+                                    <li><a href="RegisterOtherUser.aspx" class="nav-link"><i
+                                        class="fa-solid fa-user me-2"></i>Register Other User</a></li>
+                                </asp:Panel>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex-grow-1 content-container" style="height: 100vh; overflow-y: auto;">
+            <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script defer type="text/javascript" src="/Scripts/jquery-3.7.1.min.js"></script>
+    <script defer type="text/javascript" src="/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿/* General Styles for the Header */
+header {
+    background-color: #f8f9fa; /* Light background color */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef; /* Subtle bottom border */
+}
+
+    /* Contact and Social Links Styling */
+    header a {
+        color: #343a40; /* Dark text color */
+        font-size: 1rem; /* Base font size */
+        display: flex;
+        align-items: center;
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s ease; /* Smooth hover effect */
+    }
+
+        header a:hover {
+            color: #007bff; /* Bootstrap's primary color on hover */
+        }
+
+        header a i {
+            font-size: 1.2rem; /* Icon size slightly larger */
+            margin-right: 0.5rem; /* Space between icon and text */
+        }
+
+        /* Logo Styling */
+        header a img {
+            max-width: 75%; /* Responsive width for the logo */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+/* Flexbox for navbar items */
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap into a new line */
+}
+
+/* Style for dropdown menus (if you want them to look better when in two rows) */
+.nav-item {
+    margin: 0 10px;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+    header a img {
+        max-width: 80%; /* Full width on small screens */
+        margin: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        text-align: center; /* Center text on medium screens */
+    }
+
+        header .d-flex {
+            flex-direction: column; /* Stack links vertically */
+            gap: 1rem; /* Add spacing between stacked links */
+        }
+
+        header a img {
+            max-width: 100%; /* Full width on small screens */
+        }
+
+    /* Adjust this breakpoint as needed */
+    .navbar-nav {
+        justify-content: center;
+        /* Center items on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    header a {
+        font-size: 0.9rem; /* Slightly smaller font on extra small screens */
+    }
+
+        header a i {
+            font-size: 1rem; /* Adjust icon size for small screens */
+        }
+}
+
+/* Additional Spacing */
+header .gap-3 {
+    gap: 1rem !important; /* Define consistent spacing between items */
+}
+
+@media (max-width: 1024px) {
+    .hide-below-1024 {
+        display: none !important; /* Hide elements below 1024px */
+    }
+}
+
+/* Style for the Go to Top button */
+#goToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 1000;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+    #goToTop:hover {
+        background-color: #0056b3;
+    }
+
+@media(max-width:768px) {
+    #goToTop {
+        bottom: 100px;
+    }
+}

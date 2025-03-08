@@ -1,0 +1,405 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.Master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="author" content="Punj Prakash">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="UDCA, UDCA TMBU, udcatmbu, University Department of Computer Applications TMBU, University Department of Computer Applications T.M.Bhagalpur University, Computer Center, Computer Center Bhagalpur, MCA, MCA in Bhagalpur, MCA from TMBU, Master of Computer Applications (MCA) in Bhagalpur">
+    <meta name="description" content="University Department of Computer Applications (UDCA) is a constituent unit of Tilka Manjhi Bhagalpur University (TMBU), Bhagalpur. The first University in Bihar to offer a 3-year (6 semesters) full-time MCA course, now offering a 2-year (4 semesters) MCA Course according to new guidelines. The UDCA campus is spread over 2.5 acres and is fully equipped with Wi-Fi.">
+    <title><%:Page.Title %></title>
+    <!--<base href="https://udcatmbu.org/">-->
+    <link rel="preload" href="Content/bootstrap.min.css" as="style" />
+    <link rel="preload" href="Content/fontawesome.min.css" as="style" />
+    <link rel="preload" href="Styles/site.css" as="style" />
+    <link rel="preload" href="Scripts/site.js" as="script" />
+    <link rel="preload" href="Scripts/jquery-3.7.1.min.js" as="script" />
+    <link rel="preload" href="Scripts/bootstrap.bundle.min.js" as="script" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/fontawesome.min.css" />
+    <link rel="stylesheet" href="Styles/site.css" />
+    <script defer type="text/javascript" src="Scripts/site.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <header class="py-2 bg-white d-sm-flex">
+        <div class="container-fluid">
+            <div class="row text-dark text-center align-items-center">
+                <!-- Logo Section -->
+                <div class="col-xl-7 col-md-12 mb-xl-0 p-0">
+                    <a href="/">
+                        <img class="mx-auto" src="Image/logo/logo-header.png" alt="Brand Logo" />
+                    </a>
+                </div>
+                <!-- Contact and Social Links -->
+                <div class="col-xl-5 col-md-12 hide-below-1024">
+                    <div class="m-auto d-flex flex-wrap justify-content-center gap-4">
+                        <!-- Contact and Social Links -->
+                        <a href="https://www.facebook.com/udcatmbu" target="_blank" class="text-decoration-none" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>&nbsp;Facebook
+                        </a>
+                        <a href="https://www.instagram.com/udcatmbu" target="_blank" class="text-decoration-none" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>&nbsp;Instagram
+                        </a>
+                        <a href="https://x.com/udcatmbu" target="_blank" class="text-decoration-none" aria-label="Twitter/X">
+                            <i class="fab fa-x-twitter"></i>&nbsp;Twitter/X
+                        </a>
+                        <a href="https://www.linkedin.com/in/udcatmbu" target="_blank" class="text-decoration-none" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>&nbsp;LinkedIn
+                        </a>
+                        <a href="tel:0641-250040" class="text-decoration-none" aria-label="Call us">
+                            <i class="fa fa-phone"></i>&nbsp;0641-250040
+                        </a>
+                        <a href="mailto:udcatmbu.bgp@gmail.com" class="text-decoration-none" aria-label="Email us">
+                            <i class="fa fa-envelope"></i>&nbsp;udcatmbu.bgp@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand d-block d-lg-none" href="/">
+                <img src="Image/logo/logo-head.png" alt="Logo" class="logo-nav" style="width: 225px;">
+            </a>
+
+            <!-- Toggler Button for Collapse -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Offcanvas -->
+            <div class="offcanvas offcanvas-start w-75 bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header pb-0">
+                    <h4 class="offcanvas-title text-light ps-2" id="offcanvasNavbarLabel">Navigation Menu</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <!-- Navbar Links -->
+                    <ul class="navbar-nav ms-auto flex-wrap">
+                        <!-- Home Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+                        </li>
+
+                        <!-- About Menus -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-circle-info"></i>&nbsp;About
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                <li><a class="dropdown-item" href="AboutUDCA.aspx"><i class="fa-solid fa-university"></i>
+                                    &nbsp;About UDCA</a></li>
+                                <li><a class="dropdown-item" href="AboutTMBU.aspx"><i class="fa-solid fa-university"></i>
+                                    &nbsp;About TMBU</a></li>
+                                <li><a class="dropdown-item" href="Administration.aspx"><i
+                                    class="fa-solid fa-users"></i>&nbsp;Administration</a></li>
+                                <li><a class="dropdown-item" href="Director.aspx"><i class="fa-solid fa-user"></i>
+                                    &nbsp;Director's Message</a></li>
+                                <li><a class="dropdown-item" href="AboutDevelopers.aspx"><i class="fa-solid fa-code"></i>&nbsp;About Developers</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Academic Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-graduation-cap"></i>&nbsp;Academic
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="academicDropdown">
+                                <li><a class="dropdown-item" href="Prospectus.aspx"><i class="fa-solid fa-book"></i>
+                                    &nbsp;Prospectus</a></li>
+                                <li><a class="dropdown-item" href="TimeTable.aspx"><i class="fa-solid fa-clock"></i>&nbsp;Time
+                                    Table</a></li>
+                                <li><a class="dropdown-item" href="HolidayList.aspx"><i class="fa-solid fa-sun"></i>&nbsp;Holiday
+                                    List</a></li>
+                                <li><a class="dropdown-item" href="CourseSyllabus.aspx"><i
+                                    class="fa-solid fa-file-lines"></i>&nbsp;Course Syllabus</a></li>
+                                <li><a class="dropdown-item" href="AcademicCalender.aspx"><i
+                                    class="fa-solid fa-calendar"></i>&nbsp;Academic Calendar</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Admission Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-university"></i>&nbsp;Admission
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="admissionDropdown">
+                                <li><a class="dropdown-item" href="SelectionProcedure.aspx"><i
+                                    class="fa-solid fa-check-circle"></i>&nbsp;Selection Procedure</a></li>
+                                <li><a class="dropdown-item" href="EnteranceTest.aspx"><i class="fa-solid fa-pen"></i>
+                                    &nbsp;Entrance Test</a></li>
+                                <li><a class="dropdown-item" href="EligiblityCriteria.aspx"><i class="fa-solid fa-list"></i>
+                                    &nbsp;Eligibility Criteria</a></li>
+                                <li><a class="dropdown-item" href="FeeStructure.aspx"><i class="fa-solid fa-money-bill"></i>
+                                    &nbsp;Fee Structure</a></li>
+                                <li><a class="dropdown-item" href="CourseStructure.aspx"><i class="fa-solid fa-list"></i>
+                                    &nbsp;Course Structure</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Amenities Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="amenitiesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-building"></i>&nbsp;Amenities
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="amenitiesDropdown">
+                                <li><a class="dropdown-item" href="CentralLibrary.aspx"><i class="fa-solid fa-book"></i>
+                                    &nbsp;Central Library</a></li>
+                                <li><a class="dropdown-item" href="HealthCentre.aspx"><i class="fa-solid fa-kit-medical"></i>
+                                    &nbsp;Health Centre</a></li>
+                                <li><a class="dropdown-item" href="ComputerCentre.aspx"><i class="fa-solid fa-desktop"></i>
+                                    &nbsp;Computer Centre</a></li>
+                                <li><a class="dropdown-item" href="UniversityHostel.aspx"><i class="fa-solid fa-bed"></i>
+                                    &nbsp;University Hostel</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Campus Rules Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="campusRulesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-gavel"></i>&nbsp;Campus Rules
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="campusRulesDropdown">
+                                <li><a class="dropdown-item" href="AttendenceProtocol.aspx"><i
+                                    class="fa-solid fa-calendar-days"></i>&nbsp;Attendance Protocol</a></li>
+                                <li><a class="dropdown-item" href="AntiRagging.aspx"><i class="fa-solid fa-ban"></i>
+                                    &nbsp;Anti-Ragging</a></li>
+                                <li><a class="dropdown-item" href="DressCode.aspx"><i class="fa-solid fa-shirt"></i>&nbsp;Dress
+                                    Code</a></li>
+                                <li><a class="dropdown-item" href="Decipline.aspx"><i
+                                    class="fa-solid fa-scale-balanced"></i>&nbsp;Discipline</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Faculty & Staffs Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyStaffsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user-tie"></i>&nbsp;Faculty & Staffs
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="facultyStaffsDropdown">
+                                <li><a class="dropdown-item" href="FacultyMember.aspx"><i
+                                    class="fa-solid fa-user-graduate"></i>&nbsp;Teaching Staffs</a></li>
+                                <li><a class="dropdown-item" href="OfficeStaff.aspx"><i class="fa-solid fa-briefcase"></i>
+                                    &nbsp;Non-Teaching Staffs</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Alumni Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="alumniDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-users"></i>&nbsp;Alumni
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="alumniDropdown">
+                                <li><a class="dropdown-item" href="OurAlumni.aspx"><i class="fa-solid fa-user"></i>&nbsp;Our
+                                    Alumni</a></li>
+                                <li><a class="dropdown-item" href="OurAchivers.aspx"><i class="fa-solid fa-award"></i>&nbsp;Our
+                                    Achievers</a></li>
+                                <li><a class="dropdown-item" href="AlumniRegistration.aspx"><i
+                                    class="fa-solid fa-sign-in"></i>&nbsp;Alumni Registration</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Gallery Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-photo-film"></i>&nbsp;Gallery
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                                <li><a class="dropdown-item" href="ImageGallery.aspx"><i class="fa-solid fa-images"></i>
+                                    &nbsp;Image Gallery</a></li>
+                                <li><a class="dropdown-item" href="VideoGallery.aspx"><i class="fa-solid fa-video"></i>
+                                    &nbsp;Video Gallery</a></li>
+                                <li><a class="dropdown-item" href="NewsGallery.aspx"><i class="fa-solid fa-newspaper"></i>
+                                    &nbsp;News Gallery</a></li>
+                                <li><a class="dropdown-item" href="SliderGallery.aspx"><i class="fa-solid fa-sliders"></i>
+                                    &nbsp;Slider Gallery</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Information Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="informationDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-info-circle"></i>&nbsp;Information
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="informationDropdown">
+                                <li><a class="dropdown-item" href="LatestNotice.aspx"><i class="fa-solid fa-bell"></i>
+                                    &nbsp;Latest News & Notices</a></li>
+                                <li><a class="dropdown-item" href="AffiliationRegulation.aspx"><i
+                                    class="fa-solid fa-file"></i>&nbsp;Affiliations & Regulations</a></li>
+                                <li><a class="dropdown-item" href="LatestEvents.aspx"><i
+                                    class="fa-solid fa-calendar-days"></i>&nbsp;Latest Events</a></li>
+                                <li><a class="dropdown-item" href="ViewTender.aspx"><i
+                                    class="fa-solid fa-file-contract"></i>&nbsp;View Tenders</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Download Files Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="downloadDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-download"></i>&nbsp;Download
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="downloadDropdown">
+                                <li><a class="dropdown-item" href="DownloadSyllabus.aspx"><i
+                                    class="fa-solid fa-file-lines"></i>&nbsp;Syllabus</a></li>
+                                <li><a class="dropdown-item" href="DownloadAssignments.aspx"><i
+                                    class="fa-solid fa-file-archive"></i>&nbsp;Assignments</a></li>
+                                <li><a class="dropdown-item" href="DownloadPYQPapers.aspx"><i
+                                    class="fa-solid fa-file-circle-question"></i>&nbsp;PYQ Papers</a></li>
+                                <li><a class="dropdown-item" href="DownloadModalQuestions.aspx"><i
+                                    class="fa-solid fa-file-circle-check"></i>&nbsp;Modal Papers</a></li>
+                                <li><a class="dropdown-item" href="DownloadInternalQuestions.aspx"><i
+                                    class="fa-solid fa-file-circle-plus"></i>&nbsp;Internal Questions</a></li>
+                                <li><a class="dropdown-item" href="DownloadOtherFiles.aspx"><i
+                                    class="fa-solid fa-file"></i>&nbsp;Other Files</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Contact Menus -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-contact-card"></i>&nbsp;Contact
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+                                <li><a class="dropdown-item" href="ContactUs.aspx"><i class="fa-solid fa-phone"></i>&nbsp;Contact
+                                    Us</a></li>
+                                <li><a class="dropdown-item" href="CampusMap.aspx"><i class="fa-solid fa-map"></i>&nbsp;Campus
+                                    Map</a></li>
+                                <li><a class="dropdown-item" href="HowToReach.aspx"><i
+                                    class="fa-solid fa-map-location-dot"></i>&nbsp;How to Reach Here</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Standalone Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.aspx"><i class="fa-solid fa-sign-in"></i>&nbsp;Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+    </form>
+    <footer class="footer bg-dark text-light">
+        <div class="container py-4">
+            <!-- Top Section -->
+            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center text-center text-md-start">
+                <a href="/" class="mb-3 mb-md-0">
+                    <img class="logo-name" src="Image/logo/logo-head.png" alt="Logo" style="width: 300px;">
+                </a>
+                <div class="d-flex">
+                    <a href="https://x.com/udcatmbu" target="_blank" class="btn btn-secondary btn-circle me-2">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/udcatmbu" target="_blank" class="btn btn-primary btn-circle me-2">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/udcatmbu" target="_blank" class="btn btn-danger btn-circle me-2">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/udcatmbu" target="_blank" class="btn btn-primary btn-circle me-2">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:udcatmbu.bgp@gmail.com" class="btn btn-secondary btn-circle">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="border-light">
+            <!-- Link Boxes -->
+            <div class="row">
+                <div class="col-lg-2 col-6 mb-3">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="AboutUDCA.aspx" class="text-light text-decoration-none">About UDCA</a></li>
+                        <li><a href="AboutTMBU.aspx" class="text-light text-decoration-none">About TMBU</a></li>
+                        <li><a href="Administration.aspx" class="text-light text-decoration-none">Administration</a></li>
+                        <li><a href="ComputerCentre.aspx" class="text-light text-decoration-none">Computer Centre</a></li>
+                        <li><a href="Director.aspx" class="text-light text-decoration-none">Director's Message</a></li>
+                        <li><a href="AboutDevelopers.aspx" class="text-light text-decoration-none">About Developers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="LatestNotice.aspx" class="text-light text-decoration-none">Notice</a></li>
+                        <li><a href="CourseSyllabus.aspx" class="text-light text-decoration-none">Syllabus</a></li>
+                        <li><a href="TimeTable.aspx" class="text-light text-decoration-none">Time Table</a></li>
+                        <li><a href="Prospectus.aspx" class="text-light text-decoration-none">Prospectus</a></li>
+                        <li><a href="HolidayList.aspx" class="text-light text-decoration-none">Holiday List</a></li>
+                        <li><a href="FacultyMember.aspx" class="text-light text-decoration-none">Teaching Staffs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="ImageGallery.aspx" class="text-light text-decoration-none">Image Gallery</a></li>
+                        <li><a href="VideoGallery.aspx" class="text-light text-decoration-none">Video Gallery</a></li>
+                        <li><a href="OurAlumni.aspx" class="text-light text-decoration-none">View Our Alumni</a></li>
+                        <li><a href="OurAchivers.aspx" class="text-light text-decoration-none">View Our Achievers</a></li>
+                        <li><a href="Login.aspx" class="text-light text-decoration-none">Multi-Login Portal</a></li>
+                        <li><a href="AlumniRegistration.aspx" class="text-light text-decoration-none">Alumni Registration</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 mb-3">
+                    <h5>Important Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.ugc.ac.in/" target="_blank" class="text-light text-decoration-none">UGC Website</a></li>
+                        <li><a href="https://www.aicte-india.org/" target="_blank" class="text-light text-decoration-none">AICTE Website</a></li>
+                        <li><a href="https://tmbuniv.ac.in" target="_blank" class="text-light text-decoration-none">TMBU Website</a></li>
+                        <li><a href="https://swayam.gov.in/" target="_blank" class="text-light text-decoration-none">Swayam Portal</a></li>
+                        <li><a href="https://scholarships.gov.in/" target="_blank" class="text-light text-decoration-none">NSP Scholarship</a></li>
+                        <li><a href="http://www.pmsonline.bih.nic.in/" target="_blank" class="text-light text-decoration-none">PMS Scholarship</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-12 mb-3">
+                    <h5>Contacts</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="http://udcatmbu.org" class="text-light text-decoration-none">
+                            <i class="fa fa-globe"></i>&nbsp;Website: udcatmbu.org</a>
+                        </li>
+                        <li><a href="tel:0641250040" class="text-light text-decoration-none">
+                            <i class="fa fa-phone"></i>&nbsp;Telephone No.: 0641-250040</a>
+                        </li>
+                        <li><a href="mailto:udcatmbu.bgp@gmail.com" class="text-light text-decoration-none">
+                            <i class="fa fa-envelope"></i>&nbsp;Email: udcatmbu.bgp@gmail.com</a>
+                        </li>
+                        <li><a href="https://maps.app.goo.gl/Zv7E8aFZ3hYQ1ZMf6" target="_blank" class="text-light text-decoration-none">
+                            <i class="fa fa-map-marker"></i>&nbsp;Location: University Department of Computer Applications, Computer Center, T.M. Bhagalpur University, Bhagalpur, Bihar, 812007</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Bottom Section -->
+            <div class="text-center text-lg-start border-top pt-3 d-lg-flex justify-content-between align-items-center">
+                <span class="d-block mb-2 mb-lg-0">Copyright &#169; 2024 UDCA TMBU | All rights reserved !</span>
+                <span>Visits: 
+                    <asp:Label ID="lblVisitorCount" runat="server" Font-Bold="true" />
+                    | Developed & Managed by <a href="AboutDevelopers.aspx" class="text-white text-decoration-none">UDCA TMBU</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <button id="goToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script defer type="text/javascript" src="Scripts/jquery-3.7.1.min.js"></script>
+    <script defer type="text/javascript" src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

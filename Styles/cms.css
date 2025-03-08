@@ -1,0 +1,80 @@
+﻿#sidebar {
+    width: 300px;
+    min-height: 100vh;
+}
+
+    #sidebar a.nav-link {
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+
+        #sidebar a.nav-link:hover {
+            background-color: #495057;
+        }
+
+.logo-nav {
+    width: 250px;
+}
+
+@media (max-width: 560px) {
+    .logo-nav {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-nav {
+        width: 175px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-nav {
+        width: 150px;
+    }
+}
+
+.fixed-lg-sidebar {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    z-index: 1045; /* Ensure it stays above main content but below modal */
+}
+
+@media (max-width: 991.98px) {
+    .fixed-lg-sidebar {
+        position: static; /* Default offcanvas behavior on smaller screens */
+        height: auto;
+    }
+}
+
+.content-container {
+    margin-left: 300px; /* Adjust this to match your sidebar width on large screens */
+}
+
+@media (max-width: 991.98px) {
+    .content-container {
+        margin-left: 0; /* Full-width content when sidebar becomes offcanvas */
+    }
+}
+/* Style for the Go to Top button */
+#goToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 1000;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+    #goToTop:hover {
+        background-color: #0056b3;
+    }
